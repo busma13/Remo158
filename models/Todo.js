@@ -12,7 +12,12 @@ const TodoSchema = new mongoose.Schema({
   userId: {
     type: String,
     required: true
-  }
+  },
+  //creates the moongoose schema for the date stamp
+  createdAt:{
+    type: Date,
+    default: Date.now
+}
 })
 
 module.exports = mongoose.model('Todo', TodoSchema)
