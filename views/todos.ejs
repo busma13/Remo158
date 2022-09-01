@@ -10,20 +10,29 @@
 <body>
     <h1>Todos</h1>
     <ul>
-    <% todos.forEach( el => { %>
-            <li class='todoItem' data-id='<%=el._id%>'>
-                <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                <span class="date"><%= el.createdAt.toLocaleString() %></span>    <!-- add date to each element on the list -->
-                <span class='del'> Delete </span>
-            </li>
-    <% }) %>    
-    </ul>
+        <% todos.forEach( el => { %>
+                <li class='todoItem' data-id='<%=el._id%>'>
+                    <!-- sets element id to "urgency" if task is set to urgent from database -->
+                    <span id='<%= el.urgent ==="Yes" ? 'urgency' :  'no'%>' class='<%= el.completed === true ? 'completed' : 'not'%>' ><%= el.todo %></span>
+                    <span class="date"><%= el.createdAt.toLocaleString() %></span>    <!-- add date to each element on the list -->
+                    <span class='del'> Delete </span> 
+                </li>
+        <% }) %>    
+        </ul>
 
     <h2><%= user.userName %> has <%= left %> things left to do.</h2>
 
     <form action="/todos/createTodo" method='POST'>
+        <fieldset>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
+        <!-- creates drop down for urgency indicator -->
+        <label for="urgent">Is This Todo Urgent?</label>
+        <select id="urgent" name="urgent">
+            <option value="No" selected>No</option>
+            <option value="Yes">Yes</option>
+        </select>
         <input type="submit">
+        </fieldset>
     </form>
 
     <a href="/logout">Logout</a>

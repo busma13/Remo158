@@ -13,7 +13,12 @@ module.exports = {
     },
     createTodo: async (req, res)=>{
         try{
-            await Todo.create({todo: req.body.todoItem, completed: false, userId: req.user.id})
+            await Todo.create({
+                todo: req.body.todoItem, 
+                completed: false, 
+                userId: req.user.id,
+                urgent:req.body.urgent,     //takes from HTML form whether task is urgent or not
+            })
             console.log('Todo has been added!')
             res.redirect('/todos')
         }catch(err){
