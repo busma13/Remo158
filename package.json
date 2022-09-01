@@ -25,5 +25,13 @@
     "passport-local": "^1.0.0",
     "validator": "^13.6.0"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alindo001/Remo158.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alindo001/Remo158/issues"
+  },
+  "homepage": "https://github.com/alindo001/Remo158#readme"
 }
