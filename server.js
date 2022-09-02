@@ -1,5 +1,7 @@
 const express = require('express')
 const app = express()
+require('dotenv').config();
+const PORT = process.env.PORT || 2121;
 const mongoose = require('mongoose')
 const passport = require('passport')
 const session = require('express-session')
@@ -42,5 +44,5 @@ app.use('/', mainRoutes)
 app.use('/todos', todoRoutes)
  
 app.listen(process.env.PORT, ()=>{
-    console.log('Server is running, you better catch it!')
+    console.log(`Server is running on port: ${PORT}, you better catch it!`)
 })    

@@ -42,3 +42,9 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  Have fun testing and improving it! 😎
 
 
+TODO: Steam login
+      get prices from steam API - maybe
+      CSS on login page
+      CSS on signup page
+      CSS on todo page
+      Manage a very long list of games?
