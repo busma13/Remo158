@@ -18,10 +18,10 @@ const TodoSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
 },
-//creates the moongoose schema for the urgency id. Takes in a 'Yes' or 'No' from HTML form
+//creates the moongoose schema for the urgency id. Takes in a 'Red' 'Yellow' or 'Green' from HTML form
 urgent:{
   type:String,
-  
+  required: true
 }
 })
 

@@ -1,17 +1,50 @@
 h1{
-    color: red;
+    color: #66c0f4;
+    margin: auto 0;
 }
+body, a {
+    color: #c7d5e0;
+    background-image: url('https://www.gamengadgets.com/wp-content/uploads/2020/01/Steam.jpg');
+}
+
 .completed{
     text-decoration: line-through;
     color: gray;
 }
-
-
 .date{
     display: flex;
 }
 
-/* sets urgent element font red */
-#urgency{
+/* sets element color based on urgency */
+
+li.yellow::marker {
+    color: yellow;
+  }
+
+li.red::marker {
+
     color:red
+}
+
+li.green::marker {
+    color: green
+}
+
+#urgent {
+    color: #000;
+    background-color: #0dcaf0;
+    border-color: #0dcaf0;   
+}
+
+#urgent:hover {
+    color: #000;
+    background-color: #31d2f2;
+    border-color: #25cff2;
+}
+
+#urgent:active {
+    --bs-btn-active-color: #000;
+    --bs-btn-active-bg: #3dd5f3;
+    --bs-btn-active-border-color: #25cff2;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
