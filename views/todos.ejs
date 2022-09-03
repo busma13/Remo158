@@ -36,25 +36,13 @@
     <form action="/todos/createTodo" method='POST'>
         <fieldset>
         <input type="text" placeholder="Enter game name" name='todoItem'>
-        <!-- creates drop down for urgency indicator -->
-        <!-- <div class="btn-group">
-            <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-              Set Priority
-            </button>
-            <ul class="dropdown-menu" name="urgent">
-              <li><a class="dropdown-item" value="Green" href="#">Want it</a></li>
-              <li><a class="dropdown-item" value="Yellow" href="#">Need it</a></li>
-              <li><a class="dropdown-item" value="Red" href="#">Real bad</a></li>
-              <li><hr class="dropdown-divider"></li> -->
-              <!-- <li><a class="dropdown-item" href="#">Separated link</a></li>
-            </ul>
-          </div> --> -->
           
         <!-- <label for="urgent">How bad do you want this?</label> -->
         <select id="urgent" class="btn-info" name="urgent">
-            <option value="Green">Want it</option>
-            <option value="Yellow">Need it</option>
-            <option value="Red" selected>Real bad</option>
+            <option value="Green" selected>How badly do you want it?</option>
+            <option value="Green">Meh, I can wait for a sale.</option>
+            <option value="Yellow">Gotta have it.</option>
+            <option value="Red">GIVE. IT. TO. ME!</option>
         </select>
         <button type="submit" class="btn btn-outline-success">Submit</button>
 
