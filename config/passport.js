@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy
-const SteamStrategy = require('Passport-Steam').Strategy
+const SteamStrategy = require('passport-steam').Strategy
 const mongoose = require('mongoose')
 const User = require('../models/User')
 
@@ -12,11 +12,29 @@ module.exports = function (passport) {
   function(identifier, profile, done) {
     console.log(`steam strategy`, identifier, profile)
     console.log(`users steam id is`, profile._json.steamid)
-    User.findByOpenID({ openId: identifier }, function (err, user) {
-      return done(err, user);
-    });
+    // User.findOne({ steamId: profile._json.steamid }, function (err, user) {
+    //   if (err) { return done(err) }
+    //   if (!user) {
+        // const newUser = new User({
+        //   userName: profile._json.personaname,
+        //   steamId: profile._json.steamid 
+        // })
+
+        // newUser.save((err) => {
+        //   if (err) { return next(err) }
+        //   req.logIn(user, (err) => {
+        //     if (err) {
+        //       return next(err)
+        //     }
+        //     res.redirect('/todos')
+        //   })
+        // })
+      // }
+      // return done(); //null, profile
+    // });
   }
 ));
+
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email: email.toLowerCase() }, (err, user) => {
       if (err) { return done(err) }
