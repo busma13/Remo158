@@ -7,10 +7,11 @@ module.exports = function (passport) {
   passport.use(new SteamStrategy({
     returnURL: 'http://localhost:2121/auth/steam/return',
     realm: 'http://localhost:2121/',
-    apiKey: 'fake steam api key'
+    apiKey: process.env.steamAPI
   },
   function(identifier, profile, done) {
     console.log(`steam strategy`, identifier, profile)
+    console.log(`users steam id is`, profile._json.steamid)
     User.findByOpenID({ openId: identifier }, function (err, user) {
       return done(err, user);
     });
