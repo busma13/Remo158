@@ -9,12 +9,30 @@ module.exports = function (passport) {
     realm: 'http://localhost:2121/',
     apiKey: process.env.steamAPI
   },
-  function(identifier, profile, done) {
+  async function(identifier, profile, done) {
     console.log(`steam strategy`, identifier, profile)
     console.log(`users steam id is`, profile._json.steamid)
-    User.findByOpenID({ openId: identifier }, function (err, user) {
-      return done(err, user);
-    });
+      const newUser = {
+        userName: profile.displayName,
+        email: "Steam",
+        password: profile._json.steamid
+      }
+
+      try {
+          let user = await User.findOne({ userName: profile.displayName })
+
+          if(user) {
+            done(null, user)
+          } else {
+            user = await User.create(newUser)
+            done(null, user)
+          }
+      } catch (err) {
+        console.error(err)
+      }
+    // User.findByOpenID({ openId: identifier }, function (err, user) {
+    //   return done(err, user);
+    // });
   }
 ));
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
