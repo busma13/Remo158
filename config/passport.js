@@ -21,6 +21,7 @@ module.exports = function (passport) {
       try {
           let user = await User.findOne({ $and: [{ userName: profile.displayName }, { steamid: profile._json.steamid}]})
 
+
           if(user) {
             done(null, user)
           } else {
