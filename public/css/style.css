@@ -1,3 +1,7 @@
+body {
+    margin: 5rem;
+}
+
 h1{
     color: #66c0f4;
     margin: auto 0;
@@ -34,6 +38,7 @@ li.green::marker {
     color: #000;
     background-color: #0dcaf0;
     border-color: #0dcaf0;   
+    width: 100%;
 }
 
 #urgent:hover {
@@ -47,4 +52,111 @@ li.green::marker {
     --bs-btn-active-bg: #3dd5f3;
     --bs-btn-active-border-color: #25cff2;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.submit-btn {
+    width: 100%;
+}
+
+::selection{
+    color: #fff;
+    background: #664AFF;
+}
+
+.wrapper{
+    max-width: 450px;
+    margin: 15px 0;
+}
+
+.wrapper > * {
+    left: 0;
+}
+  
+.wrapper .search-input{
+    background: #fff;
+    color: #000;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0,0,0,0.12);
+}
+  
+.search-input input{
+    height: 55px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 18px;
+    box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+  
+.search-input.active input{
+    border-radius: 5px 5px 0 0;
+}
+  
+.search-input .autocom-box{
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+  
+.search-input.active .autocom-box{
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+}
+  
+.autocom-box li{
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+}
+  
+.search-input.active .autocom-box li{
+    display: block;
+}
+
+.autocom-box li:hover{
+    background: #efefef;
+}
+  
+.search-input .icon{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 55px;
+    width: 55px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 20px;
+    color: #000;
+    cursor: pointer;
+}
+
+.logout {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background: unset;
+}
+
+.input-group {
+    flex-direction: column;
+}
+
+input {
+    max-width: 600px;
+}
+
+@media all and (max-width: 500px) {
+    body {
+        margin: 2rem;
+    }
 }

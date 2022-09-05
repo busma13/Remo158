@@ -10,30 +10,24 @@ let webLink;
 inputBox.onkeyup = (e)=>{
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
-    if(userData){
+    if(userData && userData.length > 1){
         icon.onclick = ()=>{
             webLink = `https://www.google.com/search?q=${userData}`;
             linkTag.setAttribute("href", webLink);
             linkTag.click();
         }
-        // emptyArray = gamesShort.filter((data)=>{
-        //     //filtering array value and user characters to lowercase and return only those words which start with user enetered chars
-        //     return data.name.toLocaleLowerCase().includes(userData.toLocaleLowerCase());
-        // });
-        let allGames = allGamesList.applist.apps.app.map(obj => `"${obj.name} ${obj.appid}"` ).toString();
-        console.log(allGames)
+        
+        let allGames = filteredList;
         let rx = new RegExp('"([^"]*'+userData+'[^"]*)"','gi');
         emptyArray = rx.exec(allGames);
-        console.log(emptyArray)
 
         let result, i = 0, results = []
         while (result = rx.exec(allGames)) {
-          results.push(result[1].slice(0, -8));
+          results.push(result[1].split(' ').slice(0, -1).join(' ')); 
           i += 1;
           if (i >=50)
             break;
         }
-        console.log(results)
         emptyArray = results.map((data)=>{
             // passing return data inside li tag
             return data = `<li>${data}</li>`;
