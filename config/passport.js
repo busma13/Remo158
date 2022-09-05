@@ -5,33 +5,31 @@ const User = require('../models/User')
 
 module.exports = function (passport) {
   passport.use(new SteamStrategy({
-    returnURL: 'http://localhost:2121/auth/steam/return',
+    returnURL: 'http://localhost:2121/steamLogin',
     realm: 'http://localhost:2121/',
     apiKey: process.env.steamAPI
   },
-  function(identifier, profile, done) {
+  async function(identifier, profile, done) {
     console.log(`steam strategy`, identifier, profile)
     console.log(`users steam id is`, profile._json.steamid)
-    // User.findOne({ steamId: profile._json.steamid }, function (err, user) {
-    //   if (err) { return done(err) }
-    //   if (!user) {
-        // const newUser = new User({
-        //   userName: profile._json.personaname,
-        //   steamId: profile._json.steamid 
-        // })
+      const newUser = {
+        userName: profile.displayName,
+        email: "Steam",
+        steamid: profile._json.steamid
+      }
 
-        // newUser.save((err) => {
-        //   if (err) { return next(err) }
-        //   req.logIn(user, (err) => {
-        //     if (err) {
-        //       return next(err)
-        //     }
-        //     res.redirect('/todos')
-        //   })
-        // })
-      // }
-      // return done(); //null, profile
-    // });
+      try {
+          let user = await User.findOne({ $and: [{ userName: profile.displayName }, { steamid: profile._json.steamid}]})
+
+          if(user) {
+            done(null, user)
+          } else {
+            user = await User.create(newUser)
+            done(null, user)
+          }
+      } catch (err) {
+        console.error(err)
+      }
   }
 ));
 
