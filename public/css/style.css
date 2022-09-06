@@ -195,3 +195,7 @@ li.green::marker {
     flex-direction: column;
     justify-content: center;
 }
+
+.sign-up-in {
+    color: white;
+}
