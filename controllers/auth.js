@@ -11,13 +11,8 @@ const User = require('../models/User')
     })
   }
 
-  exports.getSteamLogin = (req, res) => {
-    passport.authenticate('steam'),
-    function(req, res) {
-      // The request will be redirected to Steam for authentication, so
-      // this function will not be called.
-    };
-  }
+  exports.getSteamLogin = passport.authenticate('steam')
+    
   
   exports.postLogin = (req, res, next) => {
     const validationErrors = []

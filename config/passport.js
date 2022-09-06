@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const SteamStrategy = require('passport-steam').Strategy
+
 require('dotenv').config();
 const PORT = process.env.PORT || 2121;
 const mongoose = require('mongoose')
@@ -34,11 +35,13 @@ module.exports = function (passport) {
       } catch (err) {
         console.error(err)
       }
+
       // User.findByOpenID({ openId: identifier }, function (err, user) {
       //   return done(err, user);
       // });
     }
   ));
+
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email: email.toLowerCase() }, (err, user) => {
       if (err) { return done(err) }
