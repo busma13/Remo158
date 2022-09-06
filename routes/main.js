@@ -14,12 +14,12 @@ router.get('/logout', authController.logout)
 router.get('/signup', authController.getSignup)
 router.post('/signup', authController.postSignup)
 
-router.get('/steamLogin',
-  passport.authenticate('steam', { failureRedirect: '/' }),
-  function(req, res) {
-    console.log("success logging in.")
-    res.redirect('/todos');
-  }
-) 
+
+router.get('/auth/steam/return',
+passport.authenticate('steam', { failureRedirect: '/' }),
+function(req, res) {
+  console.log("success logging in")
+  res.redirect('/todos');
+}); 
 
 module.exports = router
