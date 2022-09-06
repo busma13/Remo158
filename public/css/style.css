@@ -6,6 +6,11 @@ h1{
     color: #66c0f4;
     margin: auto 0;
 }
+
+h2 {
+    text-align: center;
+}
+
 body{
     color: #c7d5e0;
     height: auto;
@@ -56,6 +61,15 @@ li.green::marker {
     --bs-btn-active-bg: #3dd5f3;
     --bs-btn-active-border-color: #25cff2;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.del {
+    color: #1b2838;
+    background-color: #c7d5e0;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 5px;
+    border: 2px solid #000;
 }
 
 .container-user {
@@ -132,3 +146,52 @@ li.green::marker {
     opacity: 1;
     right: 0;
   }
+
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.wishlist-container {
+    background-color: #1b2838;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 50px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+}
+
+.wishlist-list {
+    margin: 10px;
+    background-color: #2a475e;
+    border-radius: 10px;
+    border: 4px solid #cccccc;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-submission {
+    background-color: #171a21;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 10px;
+    padding: 10px;
+}
+
+.game-submission fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
