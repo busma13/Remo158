@@ -1,5 +1,5 @@
 const LocalStrategy = require('passport-local').Strategy
-const SteamStrategy = require('Passport-Steam').Strategy
+const SteamStrategy = require('passport-steam').Strategy
 require('dotenv').config();
 const PORT = process.env.PORT || 2121;
 const mongoose = require('mongoose')
