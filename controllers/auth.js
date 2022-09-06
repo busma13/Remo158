@@ -10,6 +10,9 @@ const User = require('../models/User')
       title: 'Login'
     })
   }
+
+  exports.getSteamLogin = passport.authenticate('steam')
+    
   
   exports.postLogin = (req, res, next) => {
     const validationErrors = []
