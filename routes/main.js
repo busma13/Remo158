@@ -17,7 +17,7 @@ router.get('/auth/steam/return',
 passport.authenticate('steam', { failureRedirect: '/' }),
 function(req, res) {
   console.log("success logging in")
-  res.redirect('/');
+  res.redirect('/todos');
 }); 
 
 module.exports = router
