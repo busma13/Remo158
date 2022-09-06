@@ -1,6 +1,6 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+A Simple Game Wishlist app is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
 
 ---
 
@@ -42,9 +42,11 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
  Have fun testing and improving it! 😎
 
 
-TODO: Steam login
-      get prices from steam API - maybe
-      CSS on login page
-      CSS on signup page
-      CSS on todo page
-      Manage a very long list of games?
+- TODO: 
+     - Steam login.
+     - get prices from steam API - maybe.
+     - CSS on login page.
+     - CSS on signup page.
+     - CSS on todo page.
+     - Manage a very long list of games?
+     - Add a way to change urgency of gmaes in the list.
