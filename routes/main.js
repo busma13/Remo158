@@ -7,7 +7,7 @@ const passport = require("passport")
 
 router.get('/', homeController.getIndex)
 router.get('/login', authController.getLogin)
-// router.get('/steamLogin', authController.getSteamLogin)
+router.get('/steamLogin', authController.getSteamLogin)
 // router.get('/steamLogin', passport.authenticate('steam'))
 router.post('/login', authController.postLogin)
 router.get('/logout', authController.logout)

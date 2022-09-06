@@ -5,8 +5,6 @@ require('dotenv').config();
 const PORT = process.env.PORT || 2121;
 const mongoose = require('mongoose')
 const User = require('../models/User')
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
 
 module.exports = function (passport) {
   passport.use(new SteamStrategy({
