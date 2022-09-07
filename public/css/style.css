@@ -1,10 +1,24 @@
+html{
+    height: vh;
+}
+
 h1{
     color: #66c0f4;
     margin: auto 0;
 }
-body, a {
+
+h2 {
+    text-align: center;
+}
+
+body{
     color: #c7d5e0;
+    height: auto;
     background-image: url('https://www.gamengadgets.com/wp-content/uploads/2020/01/Steam.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
 }
 
 .completed{
@@ -47,4 +61,141 @@ li.green::marker {
     --bs-btn-active-bg: #3dd5f3;
     --bs-btn-active-border-color: #25cff2;
     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+
+.del {
+    color: #1b2838;
+    background-color: #c7d5e0;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 5px;
+    border: 2px solid #000;
+}
+
+.container-user {
+    background-color: #1b2838;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 25%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 50px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+
+}
+
+.container-user h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.container-user form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.form-label {
+    margin-bottom: 15px;
+}
+
+.container-buttons {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    display: inline-block;
+    background-color: #2a475e;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  button:hover {
+    background-color: #f7c2f9;
+  }
+  button:hover span {
+    padding-right: 25px;
+  }
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+
+.logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+}
+
+.wishlist-container {
+    background-color: #1b2838;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 50px;
+    border-radius: 10px;
+    border: 4px double #cccccc;
+}
+
+.wishlist-list {
+    margin: 10px;
+    background-color: #2a475e;
+    border-radius: 10px;
+    border: 4px solid #cccccc;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-submission {
+    background-color: #171a21;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin: 10px;
+    padding: 10px;
+}
+
+.game-submission fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sign-up-in {
+    color: white;
 }
