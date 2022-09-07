@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,63 +10,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <h1 class="m-4">Steam Wishlist</h1>
-    <ul>
-        <% todos.forEach( el => { %>
-            <% if (el.urgent === 'Green') { %>
-                <li class='todoItem green' data-id='<%=el._id%>'>
-                    <!-- sets element class of "Green" if task is set to "Green" from database -->
-            <% } else if (el.urgent === 'Yellow') { %>
-                <li class='todoItem yellow' data-id='<%=el._id%>'>
-                    <!-- sets element class of "Yellow" if task is set to "Yellow" from database -->
-            <% } else { %>
-                <li class='todoItem red' data-id='<%=el._id%>'>
-                    <!-- sets element class of "Red" if task is set to "Red" from database -->
-            <% } %>
-                    <!-- sets element id to "urgency" if task is set to urgent from database -->
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>' ><%= el.todo %></span>
-                    <span class="date"><%= el.createdAt.toLocaleString() %></span>    <!-- add date to each element on the list -->
-                    <span class='del'> Delete </span> 
-                </li>
-        <% }) %>    
-        </ul>
+    <div class="logout">
+        <a href="/logout" class="button">Logout</a>
+    </div>
 
-    <h2><%= user.userName %> has <%= left %> games on their wishlist.</h2>
+    <div class="wishlist-container">
+        <h2>
+            <%= user.userName %> has <%= left %> games on their wishlist.
+        </h2>
 
-    <form action="/todos/createTodo" method='POST'>
-        <fieldset>
-        <!-- <input type="text" placeholder="Enter game name" name='todoItem'> -->
-        <div class="wrapper">
-            <div class="search-input">
-                <a href="" target="_blank" hidden></a>
-                <input type="text" placeholder="Enter game name" name="todoItem">
-                <div class="autocom-box">
-                <!-- here list is inserted from javascript -->
-                </div>
-                <div class="icon"><i class="fas fa-search"></i></div>
-            </div>  
-        </div>  
-        <div class="wrapper">
-            <select id="urgent" class="btn-info" name="urgent">
-                <option value="Green" selected>How badly do you want it?</option>
-                <option value="Green">Meh, I can wait for a sale.</option>
-                <option value="Yellow">Gotta have it.</option>
-                <option value="Red">GIVE. IT. TO. ME!</option>
-            </select>
-        </div>
-        <div class="wrapper">
-            <button type="submit" class="btn btn-outline-success submit-btn">Submit</button>
+        <!-- <h1>Wishlist</h1> -->
+        <div class="wishlist-list">
+
+            <ul>
+                <% todos.forEach( el=> { %>
+                    <% if (el.urgent==='Green' ) { %>
+                        <li class='todoItem green' data-id='<%=el._id%>'>
+                            <!-- sets element class of "Green" if task is set to "Green" from database -->
+                            <% } else if (el.urgent==='Yellow' ) { %>
+                        <li class='todoItem yellow' data-id='<%=el._id%>'>
+                            <!-- sets element class of "Yellow" if task is set to "Yellow" from database -->
+                            <% } else { %>
+                        <li class='todoItem red' data-id='<%=el._id%>'>
+                            <!-- sets element class of "Red" if task is set to "Red" from database -->
+                            <% } %>
+                                <!-- sets element id to "urgency" if task is set to urgent from database -->
+                                <span class='<%= el.completed === true ? ' completed' : 'not' %>' ><%= el.todo %></span>
+                                <span class="date">
+                                    <%= el.createdAt.toLocaleString() %>
+                                </span> <!-- add date to each element on the list -->
+                                <span class='del'> Delete </span>
+                        </li>
+                        <% }) %>
+            </ul>
+
         </div>
 
-        </fieldset>
-    </form>
+        <div class="game-submission">
+            Add a Game
+            <form action="/todos/createTodo" method='POST'>
+                <fieldset>
+                    <div class="wrapper">
+                        <div class="search-input">
+                            <a href="" target="_blank" hidden></a>
+                            <input type="text" class="form-label" placeholder="Enter game name" name='todoItem'>
+                            <div class="autocom-box">
+                                <!-- here a list of games is inserted from javascript -->
+                            </div>
+                            <div class="icon"><i class="fas fa-search"></i></div>
+                        </div>   
+                    </div>   
 
-    <a href="/logout" class="logout m-5">Logout</a>
+                    <!-- <label for="urgent">How bad do you want this?</label> -->
+                    <select id="urgent" class="btn-info form-label" name="urgent">
+                        <option value="Green" selected>How badly do you want it?</option>
+                        <option value="Green">Meh, I can wait for a sale.</option>
+                        <option value="Yellow">Gotta have it.</option>
+                        <option value="Red">GIVE. IT. TO. ME!</option>
+                    </select>
+                    <button type="submit" class="btn btn-outline-success">Add Game</button>
 
+                </fieldset>
+            </form>
+
+        </div>
+
+    </div>
     <script src="js/main.js"></script>
     <script src="js/allGames.js"></script>
     <script src="js/search.js"></script>
 </body>
+
 </html>

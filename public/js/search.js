@@ -10,7 +10,7 @@ let webLink;
 inputBox.onkeyup = (e)=>{
     let userData = e.target.value; //user enetered data
     let emptyArray = [];
-    if(userData && userData.length > 1){
+    if(userData){
         icon.onclick = ()=>{
             webLink = `https://www.google.com/search?q=${userData}`;
             linkTag.setAttribute("href", webLink);
